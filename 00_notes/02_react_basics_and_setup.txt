@@ -1,0 +1,7 @@
+What is React?
+    React is a JS library. But by using some other library React behaves as framework (React Router, Redux)
+    React is single page application which has ability to render different component add and remove them on the go without reload or sending new page request.
+
+
+How to create base app
+    - run following command on terminal ----> create-react-app app-name 
