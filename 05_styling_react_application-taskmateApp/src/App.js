@@ -1,14 +1,15 @@
 import "./App.css";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const info = "Random";
   return (
     <div className="App">
       <Header />
-      <TaskList info={info} />
+      <TaskList />
+      <Footer />
     </div>
   );
 }

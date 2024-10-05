@@ -1,8 +1,9 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
 import BoxCard from "./BoxCard";
+import "./TaskList.css";
 
-const TaskList = ({ info }) => {
+const TaskList = () => {
   const [tasks, setTasks] = useState([
     { id: 1, name: "record lecture", status: true },
     { id: 2, name: "Play Cricket", status: false },
@@ -10,26 +11,26 @@ const TaskList = ({ info }) => {
   ]);
 
   const [show, setShow] = useState(true);
+  const styles = {
+    color: show ? "#3D8361" : "#be3434",
+    border: "2px solid",
+    borderColor: show ? "#3D8361" : "#be3434",
+  };
 
   function handleDelete(id) {
     console.log(id);
     setTasks(tasks.filter((task) => task.id !== id));
   }
   return (
-    <>
-      <h1>Task List</h1>
+    <section className="tasklist">
+      <h1 style={styles}>Task List</h1>
       <ul>
         <button onClick={() => setShow(!show)} className="trigger">
-          Toggle
+          {show ? "Hide" : "Show"}
         </button>
         {show &&
           tasks.map((task, index) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-              handleDelete={handleDelete}
-              info={info}
-            />
+            <TaskCard key={task.id} task={task} handleDelete={handleDelete} />
           ))}
       </ul>
 
@@ -53,7 +54,7 @@ const TaskList = ({ info }) => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dolor.
         </p>
       </BoxCard>
-    </>
+    </section>
   );
 };
 
